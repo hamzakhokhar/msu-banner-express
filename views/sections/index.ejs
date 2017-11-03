@@ -1,0 +1,35 @@
+<!-- views/pages/index.ejs -->
+
+<h2>
+    Sections
+</h2>
+<table class="table">
+    <thead >
+    <tr>
+        <th>ID</th>
+        <th>Course Name</th>
+        <th>Section</th>
+        <th>Professor Name</th>
+        <th>Room Number</th>
+        <th>Class Size</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= sections %>
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td>{{course.courseName}}</td>
+        <td>{{professor.firstName}} {{professor.lastName}}</td>
+        <td>Room Number</td>
+        <td>{{numberOfSeats}}</td>
+        <td><a href="/sections/{{id}}">Show</a></td>
+        <td><a href="/sections/{{id}}/edit">Edit</a></td>
+        <td><a href="/sections/{{id}}/delete">Delete</a></td>
+    </tr>
+    {{/sections}}
+    </tbody>
+</table>
+<br>
+<a class="btn btn-primary" href="/sections/create">Create</a>
