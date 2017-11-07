@@ -1,28 +1,44 @@
+'use strict';
+
 var Professor = require('../models/professor');
 
 // Display list of all Professors
 exports.professor_list = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor list');
+    Professor.find({}, function(err, data){
+        if(err) res.render('error');
+        else res.render('professor/index', { professors : data })
+    });
 };
 
 // Display detail page for a specific professors
 exports.professor_detail = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor detail: ' + req.params.id);
+    Professor.findById(req.params.id, function(err, data){
+        if(err) res.render('error');
+        else res.render('professor/professor.show.html', { professor: data})
+    })
 };
 
 // Display Professor create form on GET
 exports.professor_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor create GET');
+    res.render('professor/professor.create.html', {})
 };
 
 // Handle Professor create on POST
 exports.professor_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor create POST');
+    var professor = new Professor(req.body);
+    professor.save(req.body, function(err, data) {
+        if(err) res.render('error', err);
+        else res.redirect('professor')
+    })
+
 };
 
 // Display Professor delete form on GET
 exports.professor_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor delete GET');
+    Professor.findByIdAndRemove(req.params.id, function(err, data){
+        if(err) res.render('error');
+        else res.redirect('/professor')
+    })
 };
 
 // Handle Professor delete on POST
@@ -32,10 +48,16 @@ exports.professor_delete_post = function(req, res) {
 
 // Display Professor update form on GET
 exports.professor_update_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor update GET');
+    Professor.findById(req.params.id, function(err, data){
+        if(err) res.render('error');
+        else res.render('professor/professor.edit.html', { professor: data})
+    })
 };
 
 // Handle Professor update on POST
 exports.professor_update_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Professor update POST');
+    Professor.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+        if(err) res.render('error');
+        else res.redirect('/professor')
+    })
 };

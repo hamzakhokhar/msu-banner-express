@@ -1,5 +1,4 @@
-<!-- views/pages/index.ejs -->
-
+{{>common/header}}
 <h2>
     Sections
 </h2>
@@ -17,7 +16,7 @@
     </tr>
     </thead>
     <tbody>
-    <%= sections %>
+    {{#sections}}
     <tr>
         <th scope="row">{{id}}</th>
         <td>{{course.courseName}}</td>
@@ -33,3 +32,5 @@
 </table>
 <br>
 <a class="btn btn-primary" href="/sections/create">Create</a>
+
+{{>common/footer}}

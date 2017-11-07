@@ -4,10 +4,8 @@ var Schema = mongoose.Schema;
 
 var ProfessorSchema = Schema(
     {
-        first_name: {type: String, required: true, max: 100},
-        family_name: {type: String, required: true, max: 100},
-        date_of_birth: {type: Date},
-        date_of_death: {type: Date},
+        firstName: {type: String, required: true, max: 100},
+        lastName: {type: String, required: true, max: 100}
     }
 );
 

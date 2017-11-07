@@ -15,16 +15,16 @@
     </tr>
     </thead>
     <tbody>
-    {{#professor}}
+    {{#professors}}
     <tr>
-        <th scope="row">{{id}}</th>
+        <th scope="row">{{_id}}</th>
         <td>{{firstName}}</td>
         <td>{{lastName}}</td>
         <td><a href="/professor/{{id}}">Show</a></td>
         <td><a href="/professor/{{id}}/edit">Edit</a></td>
         <td><a href="/professor/{{id}}/delete">Delete</a></td>
     </tr>
-    {{/professor}}
+    {{/professors}}
     </tbody>
 </table>
 <br>

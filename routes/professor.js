@@ -14,7 +14,7 @@ var professor_controller = require('../controllers/professorController');
 router.get('/create', professor_controller.professor_create_get);
 
 /* POST request for creating professors. */
-router.post('/create', professor_controller.professor_create_post);
+router.post('/', professor_controller.professor_create_post);
 
 /* GET request to delete professors. */
 router.get('/:id/delete', professor_controller.professor_delete_get);
@@ -23,10 +23,10 @@ router.get('/:id/delete', professor_controller.professor_delete_get);
 router.post('/:id/delete', professor_controller.professor_delete_post);
 
 /* GET request to update professors. */
-router.get('/:id/update', professor_controller.professor_update_get);
+router.get('/:id/edit', professor_controller.professor_update_get);
 
 // POST request to update professors
-router.post('/:id/update', professor_controller.professor_update_post);
+router.post('/:id', professor_controller.professor_update_post);
 
 /* GET request for one professors. */
 router.get('/:id', professor_controller.professor_detail);

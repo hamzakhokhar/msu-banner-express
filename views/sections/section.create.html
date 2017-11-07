@@ -1,7 +1,8 @@
+{{>common/header}}
 <div class="card">
     <h4 class="card-header">Please fill in your section information</h4>
     <div class="card-block">
-        <form action="/sections/update" method="post">
+        <form action="/sections" method="post">
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="professor">Professor</label>
@@ -21,12 +22,12 @@
                         <option value="{{courseId}}">{{courseName}}</option>
                         {{/courses}}
                     </select>
-                </div>
+                    </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label text-right" for="numberOfSeats">Max Size</label>
                 <div class="col-sm-5">
-                    <input class="form-control" id="numberOfSeats" type="number" name="numberOfSeats" required="required" placeholder="35">
+                     <input class="form-control" id="numberOfSeats" type="number" name="numberOfSeats" required="required" placeholder="35">
                 </div>
 
             </div>
@@ -49,4 +50,5 @@
         </form>
     </div>
 </div>
+{{>common/footer}}
 

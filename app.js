@@ -13,12 +13,12 @@ var course = require('./routes/course');
 var section = require('./routes/section');
 var professor = require('./routes/professor');
 
-var ejsLayouts = require("express-ejs-layouts");
+var mustacheExpress = require('mustache-express')
 
-var app = express();
+ var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
-let mongoDB = 'mongodb://hamzakhokhar:Hamza1994@ds245615.mlab.com:45615/web_app12345';
+var mongoDB = 'mongodb://hamzakhokhar:Hamza1994@ds245615.mlab.com:45615/web_app12345';
 
 mongoose.connect(mongoDB, {
     useMongoClient: true
@@ -26,10 +26,21 @@ mongoose.connect(mongoDB, {
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+//Set up mongoose connection
+
+
+// var mongoose = require('mongoose');
+// var dev_db_url = 'mongodb://hamzakhokhar:Hamza1994@ds245615.mlab.com:45615/web_app12345'
+// var mongoDB = process.env.MONGODB_URI || dev_db_url;
+// mongoose.connect(mongoDB);
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(ejsLayouts);
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -40,10 +51,10 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/sections',section);
-app.use('/courses', course);
-app.use('/professors', professor);
+app.use('/user', users);
+app.use('/section',section);
+app.use('/course', course);
+app.use('/professor', professor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
