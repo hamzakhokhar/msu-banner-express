@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
-
+var section = require('./section.js');
 var Schema = mongoose.Schema;
 
 var ProfessorSchema = Schema(
     {
         firstName: {type: String, required: true, max: 100},
-        lastName: {type: String, required: true, max: 100}
+        lastName: {type: String, required: true, max: 100},
+        sections: [{type: Schema.ObjectId, ref:'section'}]
     }
 );
 

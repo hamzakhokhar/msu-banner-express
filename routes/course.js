@@ -14,7 +14,7 @@ var course_controller = require('../controllers/courseController');
 router.get('/create', course_controller.course_create_get);
 
 /* POST request for creating courses. */
-router.post('/create', course_controller.course_create_post);
+router.post('/', course_controller.course_create_post);
 
 /* GET request to delete courses. */
 router.get('/:id/delete', course_controller.course_delete_get);
@@ -23,10 +23,10 @@ router.get('/:id/delete', course_controller.course_delete_get);
 router.post('/:id/delete', course_controller.course_delete_post);
 
 /* GET request to update courses. */
-router.get('/:id/update', course_controller.course_update_get);
+router.get('/:id/edit', course_controller.course_update_get);
 
 // POST request to update courses
-router.post('/:id/update', course_controller.course_update_post);
+router.post('/:id', course_controller.course_update_post);
 
 /* GET request for one courses. */
 router.get('/:id', course_controller.course_detail);

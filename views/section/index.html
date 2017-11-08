@@ -1,16 +1,13 @@
 {{>common/header}}
 <h2>
-    Sections
+    Section
 </h2>
 <table class="table">
     <thead >
     <tr>
         <th>ID</th>
-        <th>Course Name</th>
-        <th>Section</th>
-        <th>Professor Name</th>
-        <th>Room Number</th>
-        <th>Class Size</th>
+        <th>Section Number</th>
+        <th>Class Location</th>
         <th></th>
         <th></th>
     </tr>
@@ -18,11 +15,10 @@
     <tbody>
     {{#sections}}
     <tr>
-        <th scope="row">{{id}}</th>
-        <td>{{course.courseName}}</td>
+        <th scope="row">{{_id}}</th>
+        <td>{{section_number}}</td>
+        <td>{{class_location}}</td>
         <td>{{professor.firstName}} {{professor.lastName}}</td>
-        <td>Room Number</td>
-        <td>{{numberOfSeats}}</td>
         <td><a href="/sections/{{id}}">Show</a></td>
         <td><a href="/sections/{{id}}/edit">Edit</a></td>
         <td><a href="/sections/{{id}}/delete">Delete</a></td>

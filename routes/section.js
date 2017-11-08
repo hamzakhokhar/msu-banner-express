@@ -14,7 +14,7 @@ var section_controller = require('../controllers/sectionController');
 router.get('/create', section_controller.section_create_get);
 
 /* POST request for creating sections. */
-router.post('/create', section_controller.section_create_post);
+router.post('/', section_controller.section_create_post);
 
 /* GET request to delete sections. */
 router.get('/:id/delete', section_controller.section_delete_get);
@@ -23,14 +23,15 @@ router.get('/:id/delete', section_controller.section_delete_get);
 router.post('/:id/delete', section_controller.section_delete_post);
 
 /* GET request to update sections. */
-router.get('/:id/update', section_controller.section_update_get);
+router.get('/:id/edit', section_controller.section_update_get);
 
 // POST request to update sections
-router.post('/:id/update', section_controller.section_update_post);
+router.post('/:id/', section_controller.section_update_post);
 
 /* GET request for one sections. */
 router.get('/:id', section_controller.section_detail);
 
 /* GET request for list of all sections items. */
 router.get('/', section_controller.section_list);
+
 module.exports = router;

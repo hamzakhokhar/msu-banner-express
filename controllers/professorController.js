@@ -28,7 +28,7 @@ exports.professor_create_post = function(req, res) {
     var professor = new Professor(req.body);
     professor.save(req.body, function(err, data) {
         if(err) res.render('error', err);
-        else res.redirect('professor')
+        else res.redirect('/professor')
     })
 
 };

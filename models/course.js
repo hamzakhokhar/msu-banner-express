@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
-
+var section = require('./section.js');
 var Schema = mongoose.Schema;
 
 var CourseSchema = Schema(
     {
-        course_name: {type: String, required: true, max: 100},
+        courseName: {type: String, required: true, max: 100},
+        sections: [{type: Schema.ObjectId, ref:'section'}]
 
     }
 );

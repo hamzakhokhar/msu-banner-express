@@ -52,8 +52,8 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/', index);
 app.use('/user', users);
-app.use('/section',section);
-app.use('/course', course);
+app.use('/sections',section);
+app.use('/courses', course);
 app.use('/professor', professor);
 
 // catch 404 and forward to error handler
