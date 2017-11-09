@@ -5,7 +5,7 @@ var router = express.Router();
 var professor_controller = require('../controllers/professorController');
 
 
-/// Section ROUTES ///
+/// Professor ROUTES ///
 
 /* GET sections home page. */
 // router.get('/', professor_controller.index);

@@ -12,10 +12,9 @@ var users = require('./routes/users');
 var course = require('./routes/course');
 var section = require('./routes/section');
 var professor = require('./routes/professor');
-
 var mustacheExpress = require('mustache-express')
 
- var app = express();
+var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb://hamzakhokhar:Hamza1994@ds245615.mlab.com:45615/web_app12345';
